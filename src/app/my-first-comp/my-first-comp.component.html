@@ -1,0 +1,68 @@
+<!-- (keydown)="onSubmit()" ===== >>>>>>>>>   to keydown event |(input)="updateMessage($event)"             -->
+
+<div class="container">
+    <div class="row">
+       <form (ngSubmit) = "onSubmit()">
+        <div class=" d-flex justify-content-center" >
+            <div class="mt-3 ms-3 me-3 col-lg-6 col-sm-12 col-md-12 border border-3 mb-3 p-4">
+                <h3 class="text-center">Simple Form</h3>
+                <div class="mb-3">
+                    <label for="exampleInputEmail1" class="form-label">Name :</label>
+                    <input type="text" class="form-control" id="name"   name="name" 
+                        [(ngModel)] = "feedBack.name"
+                         />
+                </div>
+                <div class="mb-3">
+                    <label for="exampleInputEmail1" class="form-label">Email address :</label>
+                    <input type="email" class="form-control" id="email"   name="email"
+                    [(ngModel)] = "feedBack.email"
+                         />
+                    <div id="emailHelp" class="form-text">
+                        We'll never share your email with anyone else.
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label for="exampleInputDescription" class="form-label">Message :</label>
+                    <textarea id="message" class="form-control"  name="message" 
+                    [(ngModel)] = "feedBack.message" ></textarea>
+                </div>
+
+                <div class="d-flex justify-content-center">
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+
+                <!-- <div *ngIf="isSubmited" class="mb-3 mt-3 ">
+                    <table class="table border border-2">
+                        <thead>
+                          <tr class="fw-bold">
+                            <th scope="col">#</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Email</th>
+                            <th scope="col">Message</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr *ngFor="let fd of feedBacks; let i = index">
+                            <td>{{i+1}}</td>
+                            <td>{{fd.name}}</td>
+                            <td>{{fd.email}}</td>
+                            <td>{{fd.message}}</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                </div> -->
+
+                <div class="flex-container" *ngIf="isSubmited">
+                    <app-message-details
+                    *ngFor="let fd of feedBacks; let i = index"
+                    [feedback]="fd"
+                    [index]="i"
+                    (delete)="deleteMessage($event)"
+                    ></app-message-details>
+                </div>
+            </div>
+        </div>
+       </form>
+     
+    </div>
+</div>

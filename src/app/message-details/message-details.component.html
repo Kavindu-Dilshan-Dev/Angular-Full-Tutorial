@@ -1,0 +1,14 @@
+<div class="message-card">
+    <div class="message-header">
+        <h3>{{feedback.name}}</h3>
+        <p>{{feedback.email}}</p>
+    </div>
+    <div class="message-content">
+        <p>{{feedback.message}}</p>
+    </div>
+<button 
+type="button" 
+(click)="onDelete()"
+class="btn btn-danger"
+>Delete</button>
+</div>
