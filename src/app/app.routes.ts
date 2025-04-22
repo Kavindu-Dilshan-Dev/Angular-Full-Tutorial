@@ -1,9 +1,18 @@
 import { Routes } from '@angular/router';
 import { MyFirstCompComponent } from './my-first-comp/my-first-comp.component';
+import { AboutComponent } from './about/about.component';
 
 export const routes: Routes = [
     {
-        path:"",
+        path: "",
         component: MyFirstCompComponent
+    },
+    {
+        path: "about",
+        component: AboutComponent
+    },
+    {
+        path: "about/:username",
+        component: AboutComponent
     }
 ];
